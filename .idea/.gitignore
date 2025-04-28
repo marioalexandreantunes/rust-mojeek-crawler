@@ -1,0 +1,21 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
+
+# Arquivos de build do Cargo
+/target/
+**/*.rs.bk
+
+# Dependências compiladas
+Cargo.lock
+# (OBS: Se o seu projeto é uma *library* e não um *binary*, talvez queira versionar o Cargo.lock.)
+
+# Arquivos gerados pelo RustRover (JetBrains)
+/.idea/
+*.iml
+
