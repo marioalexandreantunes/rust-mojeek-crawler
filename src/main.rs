@@ -1,7 +1,7 @@
 //! WebSearch_rust é um motor de busca em linha de comando que utiliza o Mojeek como fonte de dados.
 //! 
-//! Este programa permite aos usuários realizar buscas na web e receber resultados formatados
-//! incluindo título, descrição, link, fonte e data de cada resultado encontrado.
+//! Este programa permite aos utilizadores realizar buscas na ‘web’ e receber resultados formatados
+//! incluindo título, descrição, hiperligação, fonte e data de cada resultado encontrado.
 
 mod models;
 mod crawler;
@@ -10,7 +10,7 @@ use std::{time::Instant, io};
 use models::format_results;
 use crawler::WebCrawler;
 
-/// Função principal que gerencia a interface do usuário e o fluxo do programa.
+/// Função principal que gerencia a ‘interface’ do utilizador e o fluxo do programa.
 /// 
 /// # Errors
 /// Retorna um erro se houver falha na inicialização do crawler ou na execução da busca.

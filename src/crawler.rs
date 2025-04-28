@@ -1,15 +1,15 @@
-//! Módulo responsável pela implementação do crawler web que interage com o Mojeek.
+//! Módulo responsável pela implementação do crawler ‘web’ que interage com o Mojeek.
 //! 
-//! Este módulo fornece funcionalidades para realizar buscas web, processar
+//! Este módulo fornece funcionalidades para realizar buscas ‘web’, processar
 //! os resultados e extrair informações relevantes das páginas.
 
 use reqwest::blocking::Client;
 use reqwest::header::{HeaderMap, HeaderValue, USER_AGENT};
 use scraper::{Html, Selector};
-use rand::seq::SliceRandom;
+use rand::prelude::IndexedRandom;
 use crate::models::SearchResult;
 
-/// Lista de User-Agents utilizados para rotação nas requisições.
+/// Lista de ‘User’-Agents utilizados para rotação nas requisições.
 const USER_AGENTS: &[&str] = &[
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0",
@@ -19,7 +19,7 @@ const USER_AGENTS: &[&str] = &[
 
 const BASE_URL: &str = "https://www.mojeek.com/search";
 
-/// Estrutura principal do crawler que gerencia as requisições web.
+/// Estrutura principal do crawler que gerencia as requisições ‘web’.
 /// 
 /// Contém um cliente HTTP configurado com headers apropriados
 /// para realizar as requisições ao Mojeek.
@@ -28,7 +28,7 @@ pub struct WebCrawler {
 }
 
 impl WebCrawler {
-    /// Cria uma nova instância do WebCrawler com configurações padrão.
+    /// Cria uma instância do WebCrawler com configurações padrão.
     /// 
     /// Configura headers HTTP apropriados e inicializa o cliente HTTP.
     /// 
@@ -36,7 +36,7 @@ impl WebCrawler {
     /// Retorna erro se houver falha na criação do cliente HTTP.
     pub fn new() -> Result<Self, reqwest::Error> {
         let mut headers = HeaderMap::new();
-        headers.insert(USER_AGENT, HeaderValue::from_static(USER_AGENTS.choose(&mut rand::thread_rng()).unwrap()));
+        headers.insert(USER_AGENT, HeaderValue::from_static(USER_AGENTS.choose(&mut rand::rng()).unwrap()));
         headers.insert("Accept", HeaderValue::from_static("text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8"));
         headers.insert("Accept-Language", HeaderValue::from_static("en-US,en;q=0.5"));
         headers.insert("Connection", HeaderValue::from_static("keep-alive"));
@@ -51,7 +51,7 @@ impl WebCrawler {
     /// Realiza uma busca no Mojeek com o termo fornecido.
     /// 
     /// # Arguments
-    /// * `query` - O termo de busca
+    /// * 'query' - O termo de busca
     /// 
     /// # Returns
     /// Um vetor de resultados de busca ordenados por data

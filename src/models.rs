@@ -4,7 +4,7 @@ use chrono::{DateTime, NaiveDateTime, Utc};
 /// Representa um resultado individual de busca com todas as informações relevantes.
 /// 
 /// Esta estrutura armazena os detalhes de um resultado de busca, incluindo
-/// a fonte do conteúdo, título, descrição, link e data de publicação.
+/// a fonte do conteúdo, título, descrição, hiperligação e data de publicação.
 #[derive(Debug, Serialize)]
 pub struct SearchResult {
     pub fonte: String,
@@ -15,10 +15,10 @@ pub struct SearchResult {
 }
 
 impl SearchResult {
-    /// Converte o resultado da busca em uma string formatada para exibição.
+    /// Converte o resultado da busca em uma ‘string’ formatada para exibição.
     /// 
     /// # Returns
-    /// Uma string formatada contendo todos os campos do resultado.
+    /// Uma ‘string’ formatada contendo todos os campos do resultado.
     pub fn to_string_format(&self) -> String {
         format!(
             "Fonte: {}\nTítulo: {}\nDescrição: {}\nLink: {}\nData: {}",
@@ -35,7 +35,7 @@ impl SearchResult {
     /// Suporta múltiplos formatos de data e retorna uma data padrão em caso de erro.
     /// 
     /// # Arguments
-    /// * `date_str` - A string contendo a data a ser convertida
+    /// * `date_str` - A ‘string’ contendo a data a ser convertida
     /// 
     /// # Returns
     /// Um DateTime<Utc> representando a data parseada
@@ -53,7 +53,7 @@ impl SearchResult {
 /// * `results` - Um vetor de resultados de busca
 /// 
 /// # Returns
-/// Uma string contendo todos os resultados formatados
+/// Uma ‘string’ contendo todos os resultados formatados
 pub fn format_results(results: &Vec<SearchResult>) -> String {
     results
         .iter()
